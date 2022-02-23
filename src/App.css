@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+:root{
+  --BLACK: #0E0C05;
+  --MAX-WIDTH: 720px;
+  --RED: #E32712;
+  --BLUE: #0127A3;
+}
+a{
+  text-decoration: none;
+  color: unset;
+}
+
+.App{ position: relative; width: 100vw; overflow-y: auto; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+.header{ background-color: var(--BLACK); display: flex; justify-content: center; align-items: center; height: 50px; width: 100vw; }
+.header_main{ max-width: var(--MAX-WIDTH); width: 100%; display: flex; align-items: center; color: white; justify-content: space-between; padding: 0 10px;}
+.header_main nav{ cursor: pointer; font-weight: 600;  width: 120px; text-align: center; }
+.header_main nav:hover{ color: #c6c6c6; transition : 0.3s }
+.header_logo{ width: 70px }
+.Characters{ width: 100%; flex: 1;  max-width: var(--MAX-WIDTH); display: flex; flex-direction: column }
+.Characters > h2{ margin: 15px 5px }
+.character_list{ display: flex; flex-wrap: wrap; width: 100%; justify-content: center; }
+.small_card{ cursor: pointer; width: 230px; height: 200px; margin: 5px; border-bottom: 7px solid var(--RED); background-position: center; background-size: cover; overflow: hidden; position: relative;} 
+.small_card_text{ color: white; transition: 0.3s; display: flex; flex-direction: column; justify-content: flex-end; width: 100%; max-height: 100%; height: 100%; overflow: hidden; background: linear-gradient(to top, rgba(0, 0, 0, 0.658), rgba(0, 0, 0, 0)); padding: 0 10px 5px 10px;}
+.small_card_text .title_text{text-transform: uppercase; font-weight: bold; font-size: 16px; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);}
+.small_card_text .desc_text{ overflow: hidden; max-height: 0px; transition: 0.3s; font-size: 13px;  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3)}
+.eye_icon{ position: absolute; top: 10px; font-size: 25px; transition: 0.3s; left: -30px; }
+.small_card:hover .eye_icon{ left: 10px; }
+.small_card:hover .desc_text{ max-height: 100%;}
+.small_card:hover .small_card_text{ background: linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0.3)); }
+
+.large_card{ margin: 5px; width: 710px; height: 200px; background-color: var(--BLUE); padding: 10px; display: flex; align-items: center; }
+.large_image{ background-repeat: no-repeat; height: 100%; background-color: white; width: 210px; overflow: hidden; background-image: url("https://talksport.com/wp-content/uploads/sites/5/2021/10/GettyImages-1236008309.jpg?strip=all&w=960&quality=100"); transition: 0.3s; background-position: center; background-size: 105%; }
+
+.large_image:hover{ background-size: 125%; cursor: pointer; }
+.large_card_text{ flex: 1; padding: 10px; color: white; overflow: hidden; }
+.large_card_text .title_text{ font-weight: 600; margin-bottom: 5px; font-size: 25px; text-transform: uppercase; }
+.large_card_text .desc_text{ font-size: 14px; }
+
+.medium_card{ overflow: hidden;  width: 470px; height: 200px; margin: 5px; background-color: var(--RED); padding: 10px; display: flex; align-items: center; }
+.pagination{ display: flex; justify-content: flex-end; align-items: center; padding: 15px 0px; }
+.pagination > *{ margin: 0 5px; }
+.pagination > button{  color: var(--BLACK); display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; border: none; background-color: none; cursor: pointer; background: none; }
+.page_move{ color: var(--RED) !important; border: 1px solid var(--RED) !important; }
+.pagination > button:hover{ color: white !important; background-color: var(--RED); }
+.pagination_button_active{ color: white !important; background-color: var(--RED) !important; }
+
+.footer{ background-color: var(--RED); width: 100%; height: 80px; margin-top: 10px; }
+.header_main_mobile{ display: none; }
+.open_menu_btn{ color: white; background: none; border: none; display: flex; align-items: center; font-size: 25px; cursor: pointer; }
+
+.blank{
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 780px) {
+  .large_card{ width: 98vw; margin: 1vw;}
+  .small_card{ width: 31.1%; margin: 1vw;}
+  .medium_card{ width: 64%; margin: 1vw;}
+}
+@media only screen and (max-width: 640px) {
+  .Characters{ align-items: center; padding: 0;}
+  .character_list{justify-content: flex-start; margin: 0; padding: 0;}
+  .large_card{ width: 96vw; margin: 1vw; height: 40vw;}
+  .small_card{ width: 47vw; height: 40vw; margin: 1vw;}
+  .medium_card{ width: 96vw; margin: 1vw; height: 40vw;}
+  .large_image{  width: 42vw;}
+  .header_main{
+    display: none;
+  }
+
+  .header_main_mobile{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5px;
+    width: 100%;
+  }
+
+
+  .nav_links{ display: flex; color: white;}
+  .nav_links nav{ margin-left: 4vw;  cursor: pointer; font-size: 3vw; }
+  .nav_links nav:hover{ color: #c6c6c6 !important; }
+  .large_card_text .title_text { font-size: 5vw;}
+  .large_card_text .desc_text { font-size: 2.5vw;}
+  .small_card_text .title_text{ font-size: 3.5vw; }
+  .small_card_text .desc_text{ font-size: 2.5vw; }
+  .Characters > h2{ font-size: 6vw; }
+  .pagination > button{  width: 6.5vw; height: 6.5vw; font-size: 3vw; }
+  .footer{ height: 10vw; }
+  .pagination > *{ margin: 0 0.1vw; }
+}
